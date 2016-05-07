@@ -1,51 +1,50 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
+var React = require('react-native');
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+var styles = React.StyleSheet.create({
 
-class Dictionary extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
+    // For the container View
+    parent: {
+        padding: 16
+    },
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    // For the Text label
+    englishLabel: {
+        marginTop: 20,
+        fontWeight: 'bold'
+    },
+
+    // For the Text meaning
+    englishWord: {
+        marginTop: 15,
+        fontSize: 30,
+        fontStyle: 'italic'
+    }
 });
 
-AppRegistry.registerComponent('Dictionary', () => Dictionary);
+var Dictionary = React.createClass({
+
+    render : function() {
+        var layout =
+            <React.View style={ styles.parent }>
+
+                <React.Text>
+                    Escribe algo en español:
+                </React.Text>
+
+                <React.TextInput />
+
+                <React.Text style={ styles.englishLabel }>
+                    La traducción inglesa es:
+                </React.Text>
+
+                <React.Text style={ styles.englishWord }>
+                </React.Text>
+
+            </React.View>;
+
+        return layout;
+    }
+
+});
+
+React.AppRegistry.registerComponent('Dictionary', () => Dictionary);
