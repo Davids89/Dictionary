@@ -1,13 +1,43 @@
-var React = require('react-native');
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ */
 
-var styles = React.StyleSheet.create({
+import React, { Component } from 'react';
+import {
+    AppRegistry,
+    StyleSheet,
+    Text,
+    View,
+    TextInput
+} from 'react-native';
 
-    // For the container View
-    parent: {
-        padding: 16
+class Dictionary extends Component {
+    render() {
+        return (
+            <View style={styles.container}>
+
+                <Text style={styles.welcome}>
+                    Welcome to React Native!
+                </Text>
+
+                <TextInput/>
+
+                <Text style = { styles.englishLabel}>
+                    Traducción aquí
+                </Text>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5FCFF',
     },
-
-    // For the Text label
     englishLabel: {
         marginTop: 20,
         fontWeight: 'bold'
@@ -21,30 +51,4 @@ var styles = React.StyleSheet.create({
     }
 });
 
-var Dictionary = React.createClass({
-
-    render : function() {
-        var layout =
-            <React.View style={ styles.parent }>
-
-                <React.Text>
-                    Escribe algo en español:
-                </React.Text>
-
-                <React.TextInput />
-
-                <React.Text style={ styles.englishLabel }>
-                    La traducción inglesa es:
-                </React.Text>
-
-                <React.Text style={ styles.englishWord }>
-                </React.Text>
-
-            </React.View>;
-
-        return layout;
-    }
-
-});
-
-React.AppRegistry.registerComponent('Dictionary', () => Dictionary);
+AppRegistry.registerComponent('Dictionary', () => Dictionary);
